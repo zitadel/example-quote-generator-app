@@ -1,0 +1,55 @@
+img {
+  max-width: 100%;
+  height: auto;
+  display: block;
+  margin: 0 auto;
+  margin-bottom: 20px;
+  padding: 20px;
+  align-self: center;
+}
+
+button {
+  display: block;
+  margin: auto;
+  background: rgb(203, 43, 57);
+  color: white;
+  border-radius: 6px;
+  height: 36px;
+  padding: 0.5rem 1rem;
+  border: none;
+  font-weight: 500;
+  font-size: 14px;
+  margin-bottom: 20px; /* Adds space below buttons */
+
+  &:not([disabled]) {
+    cursor: pointer;
+  }
+
+  &:hover {
+    border: none;
+    outline: none;
+    box-shadow: inset 0 0 6px rgba(0, 0, 0, 0.1);
+  }
+
+  &:active {
+    background: rgb(206, 56, 68);
+    border: none;
+    outline: none;
+  }
+
+  &:focus {
+    border: none;
+    outline: none;
+  }
+}
+
+h1,
+p {
+  text-align: center;
+}
+
+h2 {
+  text-align: center;
+  color: grey;
+  margin-top: 60px;
+}
