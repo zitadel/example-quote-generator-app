@@ -26,12 +26,12 @@ The API has a single route:
 3. Replace the values of ZITADEL_DOMAIN, ZITADEL_INTROSPECTION_URL, API_CLIENT_ID and API_CLIENT_SECRET in the .env file with your values you obtained earlier. 
 4. Run the API by running `python3 server.py` in the terminal. 
 
-### Test the API
+### Obtain an access token via service user
 
 1. Create a service user as instructed [here]([https://github.com/zitadel/examples-api-access-and-token-introspection/tree/main/service-user-client-credentials](https://github.com/zitadel/examples-api-access-and-token-introspection/tree/main/service-user-client-credentials#2-create-a-service-user-with-client-credentials-in-zitadel-)https://github.com/zitadel/examples-api-access-and-token-introspection/tree/main/service-user-client-credentials#2-create-a-service-user-with-client-credentials-in-zitadel-). You can skip creating the role and authorization.
 2. Obtain a token by running the client-credentials-token-generator.py as instructed [here] (https://github.com/zitadel/examples-api-access-and-token-introspection/tree/main/service-user-client-credentials#3-generate-a-token-). You can perform the instructions in this directory in a different terminal.
 
-### Invoke the API with token
+### Test the API with the access token
 
 1. Invoke the API using the following cURL command:
 `curl -X GET -H "Authorization: Bearer $TOKEN" http://localhost:5000/api/custom_quote`
@@ -39,6 +39,6 @@ The API has a single route:
 2. You should get a response with Status Code 200 in the following format: 
 `{"quote":"If you're going through hell, keep going. - Winston Churchill"}`
 
-
+Now the API is ready to be consumed by our front-end application. 
 
  
