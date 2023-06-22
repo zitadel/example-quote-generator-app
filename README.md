@@ -2,31 +2,31 @@
 A simple web application using a React front-end and a Python back-end API, both secured using ZITADEL.
 
 <img
-    src="screenshots/1- landingPage.png"
+    src="screenshots/1.png"
     width="75%"
     alt="Landing Page"
 />
 
 <img
-    src="screenshots/2- loginPage.png"
+    src="screenshots/2.png"
     width="75%"
     alt="Login Page"
 />
 
 <img
-    src="screenshots/3 - loginPage.png"
+    src="screenshots/3.png"
     width="75%"
     alt="Login Page"
 />
 
 <img
-    src="screenshots/4 - postLoginPage.png"
+    src="screenshots/4.png"
     width="75%"
     alt="Post-Login Landing Page"
 />
 
 <img
-    src="screenshots/5 - postAPICall.png"
+    src="screenshots/5.png"
     width="75%"
     alt="Post API Call"
 />
