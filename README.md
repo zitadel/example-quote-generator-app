@@ -55,7 +55,7 @@ The API has a single route:
 2. cd to the backend directory: `cd backend`
 3. Create a new virtual environment for this project by running `python3 -m venv env`.
 4. Install required dependencies by running `pip3 install -r requirements.txt` on your terminal.
-5. Replace the values of `ZITADEL_DOMAIN`, `ZITADEL_INTROSPECTION_URL`, `API_CLIENT_ID` and A`PI_CLIENT_SECRET` in the .env file with your values you obtained earlier. 
+5. Replace the values of `ZITADEL_DOMAIN`, `ZITADEL_INTROSPECTION_URL`, `API_CLIENT_ID` and `API_CLIENT_SECRET` in the .env file with your values you obtained earlier. 
 6. Run the API by running `python3 server.py` in the terminal.
 
 
