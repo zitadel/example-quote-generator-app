@@ -39,7 +39,7 @@ A simple web application using a React front-end and a Python back-end API, both
 - Create an instance as explained [here](https://zitadel.com/docs/guides/start/quickstart#2-create-your-first-instance). 
 - Create a new project in your instance by following the steps [here](https://zitadel.com/docs/guides/start/quickstart#2-create-your-first-instance).
 
-## Running the backend
+## Run the backend
 
 ### Register the API in ZITADEL
 
@@ -74,7 +74,7 @@ The API has a single route:
 
 Now the API is ready to be consumed by our front-end application. 
 
-## Running the frontend
+## Run the frontend application
 
 1. Follow the ZITADEL [Quickstart Guide](https://zitadel.com/docs/guides/start/quickstart) up to [Create your React application with ZITADEL OIDC PKCE authentication](https://zitadel.com/docs/guides/start/quickstart#create-your-react-application-with-zitadel-oidc-pkce-authentication). We will go through the steps to create the React app for this tutorial below. But before that, here are some changes to note:
 - Since you already created an instance and project for the backend, you can use the same project to create the Single Page Application in ZITADEL (or you can follow the guide and create a new project altogether as well). The front-end application and API application were both created in the same ZITADEL project for this app as shown below.
@@ -140,6 +140,15 @@ fetch('/api/custom_quote')
 
 Please note that this only works when you're running your React app using the development server with `npm start` or `yarn start`. 
 
+13. Run `npm start` inside the zitadel-app folder. If everything is set up properly, you will have your application running at `http://localhost:3000/`.
 
+## Test the web application end-to-end
 
+1. Test the application by clicking on the log in button. The front-end app uses Authorization Code with PKCE flow for user authentication using ZITADEL. 
+2. The user will be redirected to ZITADEL where he has to log in as a ZITADEL user.
+3. If the login was successful, ZITADEL will send an access token along with an id token to the front-end application.
+4. The front-end application will greet the user and show the option to generate a quote via a button. The user's name was extracted from the id_token returned by ZITADEL.
+5. When the user presses the 'Generate quote" button, the back-end API will be called with the user's access token.
+6. The back-end API is protected and will introspect the access token by calling ZITADEL's introspection endpoint. If the access token is active/valid, the API will send the response to the front-end application.
+7. The user will see be abe to view the quote on the browser. 
  
