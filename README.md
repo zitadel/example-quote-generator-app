@@ -1,6 +1,36 @@
 # example-quote-generator-app
 A simple web application using a React front-end and a Python back-end API, both secured using ZITADEL.
 
+<img
+    src="screenshots/1- landingPage.png"
+    width="75%"
+    alt="Landing Page"
+/>
+
+<img
+    src="screenshots/2- loginPage.png"
+    width="75%"
+    alt="Login Page"
+/>
+
+<img
+    src="screenshots/3- loginPage.png"
+    width="75%"
+    alt="Login Page"
+/>
+
+<img
+    src="screenshots/4 - postLoginPage.png"
+    width="75%"
+    alt="Post-Login Landing Page"
+/>
+
+<img
+    src="screenshots/5 - postAPICall.png"
+    width="75%"
+    alt="Post API Call"
+/>
+
 ## Prerequisites to run the app: 
 
 - Clone this repository. 
@@ -29,7 +59,7 @@ The API has a single route:
 ### Obtain an access token via service user
 
 1. Create a service user as instructed [here]([https://github.com/zitadel/examples-api-access-and-token-introspection/tree/main/service-user-client-credentials](https://github.com/zitadel/examples-api-access-and-token-introspection/tree/main/service-user-client-credentials#2-create-a-service-user-with-client-credentials-in-zitadel-)https://github.com/zitadel/examples-api-access-and-token-introspection/tree/main/service-user-client-credentials#2-create-a-service-user-with-client-credentials-in-zitadel-). You can skip creating the role and authorization.
-2. Obtain a token by running the client-credentials-token-generator.py as instructed [here] (https://github.com/zitadel/examples-api-access-and-token-introspection/tree/main/service-user-client-credentials#3-generate-a-token-). You can perform the instructions in this directory in a different terminal.
+2. Obtain a token by running the client-credentials-token-generator.py as instructed [here](https://github.com/zitadel/examples-api-access-and-token-introspection/tree/main/service-user-client-credentials#3-generate-a-token-). You can perform the instructions in this directory in a different terminal.
 
 ### Test the API with the access token
 
