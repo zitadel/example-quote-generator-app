@@ -55,7 +55,7 @@ The API has a single route:
 2. cd to the backend directory: `cd backend`
 3. Create a new virtual environment for this project by running `python3 -m venv env`.
 4. Install required dependencies by running `pip3 install -r requirements.txt` on your terminal.
-5. Replace the values of ZITADEL_DOMAIN, ZITADEL_INTROSPECTION_URL, API_CLIENT_ID and API_CLIENT_SECRET in the .env file with your values you obtained earlier. 
+5. Replace the values of `ZITADEL_DOMAIN`, `ZITADEL_INTROSPECTION_URL`, `API_CLIENT_ID` and A`PI_CLIENT_SECRET` in the .env file with your values you obtained earlier. 
 6. Run the API by running `python3 server.py` in the terminal.
 
 
@@ -109,8 +109,8 @@ Now the API is ready to be consumed by our front-end application.
 7. Replace the content in your `App.js` file with [src/App.js](https://github.com/zitadel/example-quote-generator-app/blob/main/frontend/src/App.js).
 8. Create a file named `Login.js` and paste the code in [src/Login/js](https://github.com/zitadel/example-quote-generator-app/blob/main/frontend/src/Login.js).
 9. Create a file named `authConfig.js` and add to it the content from [src/authConfig.js](https://github.com/zitadel/example-quote-generator-app/blob/main/frontend/src/authConfig.js). Edit the file by adding your values your obtained from ZITADEL. Make sure the PROJECT_ID in the scope is replaced with the project ID of the project where your API resides.
-10. Add a new file called style.css to the src folder to apply CSS styling to the pages. Copy paste the code from [src/style.css](https://github.com/zitadel/example-quote-generator-app/blob/main/frontend/src/style.css).
-11. Create a folder called images and add the image in the [/images](https://github.com/zitadel/example-quote-generator-app/tree/main/frontend/src/images) folder.
+10. Add a new file called `style.css` to the src folder to apply CSS styling to the pages. Copy paste the code from [src/style.css](https://github.com/zitadel/example-quote-generator-app/blob/main/frontend/src/style.css).
+11. Create a folder called `images` and add the image in the [/images](https://github.com/zitadel/example-quote-generator-app/tree/main/frontend/src/images) folder.
 12. Add the line `"proxy": "http://localhost:5000"` to your `package.json` file so that it looks something like this:
 ```
     {
@@ -132,9 +132,11 @@ Now the API is ready to be consumed by our front-end application.
 The "proxy" field in package.json tells the development server to proxy any unknown requests to the specified address. This helps us bypass CORS issues because the requests will be served from the same domain as far as the client (browser) is concerned.
 So, in the React code, the fetch request looks like:
 
-`fetch('/api/custom_quote')
+```
+fetch('/api/custom_quote')
   .then(response => response.json())
-  .then(data => this.setState({ quote: data.quote }));`
+  .then(data => this.setState({ quote: data.quote }));
+```
 
 Please note that this only works when you're running your React app using the development server with `npm start` or `yarn start`. 
 
