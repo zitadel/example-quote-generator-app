@@ -77,25 +77,31 @@ Now the API is ready to be consumed by our front-end application.
 ## Running the frontend
 
 1. Follow the ZITADEL [Quickstart Guide](https://zitadel.com/docs/guides/start/quickstart) up to [Create your React application with ZITADEL OIDC PKCE authentication](https://zitadel.com/docs/guides/start/quickstart#create-your-react-application-with-zitadel-oidc-pkce-authentication). We will go through the steps to create the React app for this tutorial below. But before that, here are some changes to note:
-    - Since you already created an instance and project for the backend, you can use the same project to create the Single Page Application in ZITADEL (or you can follow the guide and create a new project altogether as well). The front-end application and API application were both created in the same ZITADEL project for this app.
+- Since you already created an instance and project for the backend, you can use the same project to create the Single Page Application in ZITADEL (or you can follow the guide and create a new project altogether as well). The front-end application and API application were both created in the same ZITADEL project for this app as shown below.
+
 <img
     src="screenshots/8.png"
     width="75%"
     alt="Project"
 />
-    - Also, you do not need to create roles and authorizations as stated in the Quickstart.
-    - Also make sure to modify the Zitadel redirect_uri configuration to be just `http://localhost:3000/` (the Quickstart guide uses `http://localhost:3000/callback`).
+
+- Also, you do not need to create roles and authorizations as stated in the Quickstart.
+- Make sure to modify the Zitadel redirect_uri configuration to be just `http://localhost:3000/` (the Quickstart guide uses `http://localhost:3000/callback`).
+
 <img
     src="screenshots/6.png"
     width="75%"
     alt="Redirect Settings"
 />
-    - You must also go to Token Settings in the front-end app and select User Info inside ID Token as shown below:
+
+- You must also go to Token Settings in the front-end app and select User Info inside ID Token as shown below:
+
 <img
     src="screenshots/7.png"
     width="75%"
     alt="Token Settings"
 />
+
 3. Navigate to the folder where you want to create the React app. 
 4. Run the following command to create a new React app named "zitadel-app": `npx create-react-app zitadel-app`
 5. Navigate to the "zitadel-app" folder: `cd zitadel-app`
