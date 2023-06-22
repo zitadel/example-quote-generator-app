@@ -112,7 +112,8 @@ Now the API is ready to be consumed by our front-end application.
 10. Add a new file called style.css to the src folder to apply CSS styling to the pages. Copy paste the code from [src/style.css](https://github.com/zitadel/example-quote-generator-app/blob/main/frontend/src/style.css).
 11. Create a folder called images and add the image in the [/images](https://github.com/zitadel/example-quote-generator-app/tree/main/frontend/src/images) folder.
 12. Add the line `"proxy": "http://localhost:5000"` to your `package.json` file so that it looks something like this:
-    `{
+
+`{
   "name": "my-app",
   "version": "0.1.0",
   "private": true,
@@ -124,8 +125,8 @@ Now the API is ready to be consumed by our front-end application.
     //...
   },
   //...
-}
-`
+}`
+
 The "proxy" field in package.json tells the development server to proxy any unknown requests to the specified address. This helps us bypass CORS issues because the requests will be served from the same domain as far as the client (browser) is concerned.
 So, in the React code, the fetch request looks like:
 
