@@ -14,7 +14,7 @@ A simple web application using a React front-end and a Python back-end API, both
 />
 
 <img
-    src="screenshots/3- loginPage.png"
+    src="screenshots/3 - loginPage.png"
     width="75%"
     alt="Login Page"
 />
