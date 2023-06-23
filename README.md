@@ -150,5 +150,5 @@ Please note that this only works when you're running your React app using the de
 4. The front-end application will greet the user and show the option to generate a quote via a button. The user's name was extracted from the id_token returned by ZITADEL.
 5. When the user presses the 'Generate quote" button, the back-end API will be called with the user's access token.
 6. The back-end API is protected and will introspect the access token by calling ZITADEL's introspection endpoint. If the access token is active/valid, the API will send the response to the front-end application.
-7. The user will see be abe to view the quote on the browser. 
+7. The user will be abe to view the quote on the browser. 
  
