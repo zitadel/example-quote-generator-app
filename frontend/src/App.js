@@ -1,68 +1,85 @@
-//Login.js
-import React, { useState, useEffect } from 'react';
-import myImage from './images/randy-tarampi-U2eUlPEKIgU-unsplash.jpg';
+//App.js
+import React, { useState, useEffect } from "react";
+import { BrowserRouter, Routes, Route } from "react-router-dom";
+import Login from "./Login";
+import authConfig from "./authConfig";
+import { UserManager, WebStorageStateStore } from "oidc-client-ts";
 
-const Login = ({ auth, handleLogin, handleLogout, userInfo }) => {
-  const [quote, setQuote] = useState('');
-  const [error, setError] = useState('');
-  const [loading, setLoading] = useState(false);
+function App() {
+  const [userManager, setUserManager] = useState(null);
+  const [authenticated, setAuthenticated] = useState(null);
+  const [userInfo, setUserInfo] = useState(null);
 
-  const generateQuote = () => {
-    setLoading(true);
-    fetch('/api/custom_quote', { // or use 'http://localhost:5000/api/custom_quote'
-      headers: {
-        'Authorization': `Bearer ${userInfo.access_token}`
-      }
-    })
-    .then(response => {
-      if (response.ok) {
-        return response.json();
-      } else {
-        throw new Error('Error while fetching the quote');
-      }
-    })
-    .then(data => {
-      setQuote(data.quote);
-      setError('');
-      setLoading(false);
-    })
-    .catch((error) => {
-      setError('Error: Unable to fetch the quote');
-      setLoading(false);
+  useEffect(() => {
+    const manager = new UserManager({
+      userStore: new WebStorageStateStore({ store: window.localStorage }),
+      ...authConfig,
     });
-  };
 
-  if (auth === null) {
+    setUserManager(manager);
+  }, []);
+
+  useEffect(() => {
+    if (userManager) {
+      userManager.getUser().then((user) => {
+        if (user) {
+          setAuthenticated(true);
+          setUserInfo(user); // Store the entire user object
+        } else {
+          setAuthenticated(false);
+        }
+      });
+
+      if (window.location.href.includes('id_token') || window.location.href.includes('code')) {
+        userManager.signinRedirectCallback()
+          .then((user) => {
+            if (user) {
+              console.log('Redirect callback user', user);
+              setAuthenticated(true);
+              setUserInfo(user); // Store the entire user object
+            }
+          })
+          .catch((error) => {
+            console.error('Sign-in error', error);
+          });
+      }
+    }
+  }, [userManager]);
+
+
+
+  function authorize() {
+    userManager && userManager.signinRedirect({ state: "a2123a67ff11413fa19217a9ea0fbad5" });
+  }
+
+  function clearAuth() {
+    userManager && userManager.signoutRedirect();
+  }
+
+  if (!userManager) {
     return <div>Loading...</div>;
   }
 
-  if (auth === false) {
-    return (
-      <div>
-        <h1>Welcome!</h1>
-        <button onClick={handleLogin}>Please log in.</button>
-      </div>
-    );
-  }
+  return (
+    <BrowserRouter>
+      <Routes>
+        <Route
+          path="/"
+          element={
+            <Login
+              auth={authenticated}
+              handleLogin={authorize}
+              handleLogout={clearAuth}
+              userInfo={userInfo}
+              userManager={userManager}
+            />
+          }
+        />
+      </Routes>
+    </BrowserRouter>
+  );
+}
 
-  if (auth === true && userInfo) {
-    return (
-      <div>
-        <h1>Welcome, {userInfo.profile.name}!</h1>
-        <img src={myImage} alt="quote pic" /> {/* Image displayed here */}
-       {/* <h2>Your access token: {userInfo.access_token}</h2> */}
-        <button onClick={handleLogout}>Log out</button>
-        <button onClick={generateQuote}>Generate quote</button>
-        {loading && <p>Loading quote...</p>}
-        {error && <p>{error}</p>}
-        {quote && <h2>Your personalized quote:</h2>}
-        {quote && <p>Hey there, <b>{userInfo.profile.name}</b>! Here's a fun little quote just for you: <b><i>{quote}</i></b></p>}
-        {quote && <p>This quote was also emailed to you at <b>{userInfo.profile.email}</b>.</p>}
-      </div>
-    );
-  }
+export default App;
 
-  return <div>Loading...</div>;
-};
 
-export default Login;
