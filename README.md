@@ -1,3 +1,7 @@
+> [\!WARNING]
+> This repository is archived and no longer maintained.
+> For the latest version and active development, please refer to [zitadel/example-auth-flask](https://github.com/zitadel/example-auth-flask).
+
 # example-quote-generator-app
 A simple web application using a React front-end and a Python back-end API, both secured using ZITADEL.
 
